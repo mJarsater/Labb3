@@ -13,15 +13,19 @@ class Datum
 	unsigned int year;
 	unsigned int month;
 	unsigned int day;
-	unsigned int length = year + month + day;
 	// Deklaration av statisk privat medlem, "ant_dagar per månad"
 	static const std::array< unsigned int, 13 > ANT_DAGAR_PER_MAANAD;
 	//void step_one_day(); // Öka datum med en dag
 
 public:
+	// Konstruktor med parametrar
 	Datum(int, int, int);
-	void set_date(int, int, int); // set year, month, day
+
+	//Standardkonstruktor
 	Datum();
+
+	// set year, month, day
+	void set_date(int, int, int);
 
 	// += operator
 	const Datum operator+=(int);
@@ -37,12 +41,12 @@ public:
 	//++operator POSTFIX
 	const Datum operator++(int);
 
-	//OBS. funktionen "step_one_day()" bör vara PRIVATE
-	void step_one_day(); // Öka datum med en dag
-
 	
 
 private:
+	//OBS. funktionen "step_one_day()" bör vara PRIVATE
+	void step_one_day(); // Öka datum med en dag
+
 	static bool is_skott_aar(int); // Är det skottår?
 	bool end_of_month(int) const; // Är dagen den sista i månaden?
 	// < operator
