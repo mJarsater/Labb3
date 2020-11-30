@@ -7,6 +7,7 @@
  // Funktion som används endast för test/evaluering av din lösning, denna är samma
  // som "min_print_eval()", fast den har fler utskrifter. Vid evaluering, så skall
  // endast "min_print_eval()" anropas. Bortkommentera då anropet till denna funktion.
+/*
 void max_print()
 {
   Datum dat1; // defaults to 1 January, 2000
@@ -86,7 +87,7 @@ void max_print()
   std::cout << std::endl;
 
 }
-/*
+*/
 // Funktion som endast används för test/evaluering av din lösning, samma som ovanstående fast bantade utskrifter.
 void min_print_eval()
 {
@@ -170,7 +171,7 @@ void min_print_eval()
   std::cout << std::endl;
 
 }
-*/
+/*
 
 void first_print()
 {
@@ -187,7 +188,7 @@ void first_print()
 	std::cout << dat1 << std::endl;
 	std::cout << std::endl;
 }
-
+*/
 int main(int argc, const char* argv[]) {
 	/* Denna uppgift kan du kompilera och köra från början. Du anropar bara
 	 * funktionen "first_print()".
@@ -196,9 +197,9 @@ int main(int argc, const char* argv[]) {
 	 * köras, "max_print()" och "first_print()"skall då vara bortkommenterade.
 	 */
 
-	first_print();
-	max_print();
-	//min_print_eval();
+	//first_print();
+	//max_print();
+	min_print_eval();
 
 	return 0;
 }

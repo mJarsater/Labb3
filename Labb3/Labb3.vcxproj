@@ -140,7 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Datum.cpp" />
-    <ClCompile Include="Labb3.cpp" />
+    <ClCompile Include="labb3_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Datum.h" />

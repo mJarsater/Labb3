@@ -36,33 +36,36 @@ public:
 
 	//++operator POSTFIX
 	const Datum operator++(int);
-	
-	// < operator
-	friend bool operator<(const Datum& left ,const Datum& right);
 
-	// > operator
-	const Datum operator>(const Datum& other);
-
-	// <= operator
-	const Datum operator<=(const Datum& other);
-
-	// >= operator
-	const Datum operator>=(const Datum& other);
-	
-	// == operator
-	const Datum operator==(const Datum& other);
-
-	// != operator
-	const Datum operator!=(const Datum& other);
+	//OBS. funktionen "step_one_day()" bör vara PRIVATE
+	void step_one_day(); // Öka datum med en dag
 
 	
 
 private:
-	//OBS. funktionen "step_one_day()" bör vara PRIVATE
-	void step_one_day(); // Öka datum med en dag
 	static bool is_skott_aar(int); // Är det skottår?
 	bool end_of_month(int) const; // Är dagen den sista i månaden?
+	// < operator
+	friend bool operator<(const Datum& left, const Datum& right);
+	// > operator
+	friend bool operator>(const Datum& left, const Datum& right);
 };
+
+inline bool operator==(const Datum& left, const Datum& right) {
+	return !(left < right) && !(right < left);
+}
+
+inline bool operator!=(const Datum& left, const Datum& right) {
+	return !(left == right);
+}
+
+inline bool operator>=(const Datum& left, const Datum& right) {
+	return !(left < right);
+}
+
+inline bool operator<=(const Datum& left, const Datum& right) {
+	return !(right < left);
+}
 
 
 

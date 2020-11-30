@@ -3,12 +3,13 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Datum.h"
 
 // Initialisera statisk medlem
 // (första elementet används inte i denna lösning!)
 const std::array< unsigned int, 13 > Datum::ANT_DAGAR_PER_MAANAD = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
-
+const std::vector<std::string> months {"January", "February", "March","April","May","June","July","August","September","October","November","December" };
 
 
 // Konstruktor
@@ -91,13 +92,13 @@ bool Datum::end_of_month(int dd) const
 std::ostream& operator<<(std::ostream& output, const Datum& d)
 {
 	// OBS. Glöm inte att modifiera vad som skrivs ut!
-	output << d.year << '-' << d.month << '-' << d.day;
+	output << d.day << ' ' << months[d.month-1] << ' ' << d.year;
 	return output;
 
 }
 
 const Datum Datum::operator++() {
-	step_one_day;
+	step_one_day();
 	return *this;
 }
 
@@ -106,6 +107,8 @@ const Datum Datum::operator++(int) {
 	step_one_day();
 	return temp;
 }
+
+
 
 
 const Datum Datum::operator+=(int add) {
@@ -132,6 +135,17 @@ bool operator<(const Datum& left, const Datum& right) {
 	if(left.month < right.month)
 		return true;
 	if (left.month < right.month)
+		return true;
+	else
+		return false;
+}
+
+bool operator>(const Datum& left, const Datum& right) {
+	if (left.year > right.year)
+		return true;
+	if (left.month > right.month)
+		return true;
+	if (left.month > right.month)
 		return true;
 	else
 		return false;
